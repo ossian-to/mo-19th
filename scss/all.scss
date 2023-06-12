@@ -1,0 +1,874 @@
+@charset "UTF-8";
+@import "initial";
+
+
+// 載入思源宋體 Medium
+// font-family: 'Noto Serif TC', serif;
+// font-weight: 500;
+
+// @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap');
+
+*{
+  transition: padding 0.3s, width 0.3s, max-width 0.3s, min-width 0.3s, min-height 0.3s, font-size 0.3s, background-image 0.3s, transform 0.3s, filter 0.3s;
+}
+
+em{
+  font-style: normal;
+}
+
+.ossian{
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  // padding: 0 1em;
+  max-width: 1920px;
+  width: 100%;
+  min-height: 100%;
+  line-height: 1.75;
+  background-color: #476e30;
+  // background-image: url(../images/bg-desktop.jpg);
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.content-padding{
+  padding: 0 1em;
+  &.pb-10{
+    padding-bottom: 4em;
+  }
+}
+
+// 角色圖
+.two-boy{
+  position: absolute;
+  // left: calc(50% + 150px);
+  // top: 3em;
+}
+
+// 網站標題
+
+.site-title{
+  position: relative;
+  margin: 2em auto;
+  max-width: 539px;
+  text-align: center;
+  z-index: 1;
+}
+
+// 樂透機及活動時間
+
+.layout-lottery{
+  position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  // flex-wrap: wrap;
+  gap: 1em;
+  column-gap: 2em;
+
+  .login-statue{
+    position: relative;
+    .ticket{
+      display: none;
+    }
+  }
+  .lottery-box{
+    position: relative;
+    > .unstart{
+      display: block;
+      display: block;
+      .logout{
+        position: absolute;
+        top: 3em;
+        left: calc(50% - 95px);
+        animation: jump 0.5s infinite ease-in-out;
+      }
+    }
+    > .start{
+      display: none;
+    }
+    > .end{
+      display: none;
+    }
+    > .start-logout{
+      display: none;
+    }
+    > .ticket-zoro{
+      display: none;
+    }
+  }
+  // 會員登錄
+  &.login{
+    .login-statue{
+      .login-btn{
+        display: none;
+      }
+      .ticket{
+        display: block;
+      }
+    }
+    .lottery-box{
+      > .unstart{
+        display: block;
+        .logout{
+          display: none;
+        }
+      }
+      > .start{
+        display: none;
+      }
+      > .end{
+        display: none;
+      }
+      > .start-logout{
+        display: none;
+      }
+      > .ticket-zoro{
+        display: none;
+      }
+    }
+  }
+  // 抽獎期間
+  &.open{
+    .lottery-box{
+      > .unstart{
+        display: none;
+      }
+      > .start{
+        display: block;
+      }
+      > .end{
+        display: none;
+      }
+      > .start-logout{
+        display: none;
+      }
+      > .ticket-zoro{
+        display: none;
+      }
+    }
+  }
+  // 抽獎過期
+  &.end{
+    .lottery-box{
+      > .unstart{
+        display: none;
+      }
+      > .start{
+        display: none;
+      }
+      > .end{
+        display: block;
+      }
+      > .start-logout{
+        display: none;
+      }
+      > .ticket-zoro{
+        display: none;
+      }
+    }
+  }
+  // 抽獎已開放，但使用者未登錄
+  &.non{
+    .lottery-box{
+      > .unstart{
+        display: none;
+      }
+      > .start{
+        display: none;
+      }
+      > .end{
+        display: none;
+      }
+      > .start-logout{
+        display: block;
+        .logout{
+          position: absolute;
+          top: 3em;
+          left: calc(50% - 95px);
+          animation: jump 1s infinite ease-in-out;
+        }
+      }
+        > .ticket-zoro{
+        display: none;
+      }
+    }
+  }
+  // 活動期間登入會員，但抽獎券數量為零
+  &.unticket{
+    .lottery-box{
+      > .unstart{
+        display: none;
+      }
+      > .start{
+        display: none;
+      }
+      > .end{
+        display: none;
+      }
+      > .start-logout{
+        display: none;
+      }
+      > .ticket-zoro{
+        display: block;
+      }
+    }
+  }
+}
+@keyframes jump {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(20px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+.date-state{
+  dd{
+    margin: 0;
+    padding: 0;
+    color: #ffffde;
+      h4{
+        display: inline-block;
+        margin: 0.75em 0;
+        padding: 0 0.25em;
+        font-size: 1.1875rem;
+        // color: #ffffde;
+        background-color: #b16de0;
+        border-radius: 5px;
+        em{
+          color: #ffeb63;
+        }
+      }
+  }
+}
+
+// 樂透機
+
+.lottery-box{
+  padding-top: 1em;
+}
+
+.lottery-machine{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: auto;
+  // height: 514px;
+  background-image: url(../images/lottery-back.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  li{
+    position: relative;
+    &::before{
+      content: '';
+      position: absolute;
+      // top: 9em;
+      width: 100%;
+      height: 180px;
+      background-image: url(../images/hear.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 3;
+      animation: now 1s infinite;
+      // background-size: 100%;
+    }
+    img{
+      position: relative;
+      // max-width: 473px;
+      // width: 100%;
+      z-index: 2;
+    }
+  }
+}
+@keyframes now {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(1em);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 10;
+  // -webkit-backdrop-filter: blur(0.75em);
+  // backdrop-filter: blur(0.75em);
+}
+
+.modal-content {
+  // background-color: white;
+  overflow: hidden;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  // transform: translateY(-80%);
+  top: 50%;
+  max-width: 500px;
+  height:500px;
+  // border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.modal-light{
+  position: absolute;
+  // transform: translateY(-50%) translateX(-50%);
+  top: calc(50% - 250px);
+  left: calc(50% - 250px);
+  animation: rs 10s infinite linear;
+}
+@keyframes rs {
+  0%{
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(180deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.close {
+  display: inline-block;
+  position: absolute;
+  top: 20%;
+  right: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.25;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+.fade-in .modal-content{
+  transform: translateY(-50%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.btn {
+  position: absolute;
+  bottom: 1.35em;
+  left: calc(50% - 40px);
+  width: 122px;
+  height: 122px;
+  border-radius: 50%;
+  background-image: url(../images/lottery-button.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.ball {
+  position: absolute;
+  bottom: 7em;
+  transition: unset;
+  z-index: 1;
+  img{
+    width: 100%;
+  }
+}
+.lottery-back{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.animate {
+  animation: animateButton 0.5s;
+}
+
+@keyframes animateButton {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.down {
+  // transform: translateY(100px);
+  // transition: transform 0.3s;
+  bottom: 0;
+  transition: bottom 0.3s;
+}
+
+
+// AJAX
+
+.content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none; // 預設的容器
+  text-align: center;
+  font-size: 1.5em;
+}
+.loading {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.fade-in {
+  animation: fade-in 0.3s ease-in;
+}
+
+.fade-out {
+  animation: fade-out 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+
+
+// 活動時間
+
+.act-time{
+  margin: 0 auto;
+  padding: 0;
+  // min-width: 300px;
+  img{
+    width: 100%;
+  }
+}
+.act-note{
+  margin: 0;
+  padding: 1em 1em 1em 2.5em;
+  list-style: none;
+  list-style-image: url(../images/gold-dot.png);
+  background-color: #345222;
+  border: 8px solid #b17a3f;
+  border-radius: 1.25em;
+  box-shadow: 0 0 5px 0 #1f3711 inset;
+  li{
+    color: #ffd6a4;
+    font-size: 1.1875em;
+    em{
+      color: white;
+    }
+  }
+}
+
+// 抽獎券
+
+.ticket{
+  position: relative;
+  margin: 0 auto;
+  padding-top: 0.25em;
+  width: 310px;
+  height: 98px;
+  color: #eab06a;
+  font-size: 1.5rem;
+  line-height: initial;
+  background-image: url(../images/ticket.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.num{
+  padding: 0.25em;
+  color: #b35400;
+  font-size: 2.125rem;
+  font-weight: bold;
+  line-height: 1;
+  em{
+    display: inline-block;
+    margin-right: 0.15em;
+    padding: 0.05em 0.1em;
+    color: #380f62;
+    background-color: #ffdbaf;
+    border-radius: 3px;
+  }
+}
+
+// 獎品區塊
+
+.gift-group{
+  background-image: url(../images/break.png);
+  background-position: top center;
+  background-repeat: repeat-x;
+  background-color: #345222;
+}
+
+.gift-container{
+  margin: 0 auto;
+  // padding: 2em 0 2em 0;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  // flex-wrap: nowrap;
+  gap: 1em;
+  > div{
+    &.ps5-container{
+      position: relative;
+      text-align: center;
+      max-width: 350px;
+      .a{
+        .ps5-count{
+          display: inline-block;
+          position: absolute;
+          top: 7em;
+          left: calc(50% - 1.75em);
+          padding:  0 1rem 0.35rem;
+          color: #b051f8;
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-align: center;
+          background-color: white;
+          border-radius: 10px;
+          line-height: 1.25;
+          span{
+            font-size: 1rem;
+            color: black;
+          }
+        }
+        img{
+          max-width: 280px;
+          width: 100%;
+        }
+      }
+    }
+    &:nth-child(2){
+      width: 100%;
+      // height: 800px;
+    }
+    &:nth-child(3){
+      display: none;
+      width: 100%;
+    }
+  }
+}
+
+ul.footer-note{
+  margin-left: 0;
+  padding-left: 1.25em;
+  color: #ffea4a;
+  text-align: initial;
+  li{
+    padding-bottom: 1em;
+    span{
+      color: #ffffde;
+      em{
+        color: #fff07e;
+      }
+    }
+  }
+}
+
+// 虛寶清單
+
+ul.gifts-grid{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 3em;
+  column-gap: 1em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li{
+    padding: 5px;
+    // width: 190px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #ffea4a;
+    border-radius: 0.825em;
+    &:hover{
+      .gift-content{
+        figure{
+          img{
+            transform: scale(1.25);
+          }
+        }
+      }
+    }
+    .gift-content{
+      position: relative;
+      padding: 1rem;
+      font-size: 1.125rem;
+      background-color: white;
+      border-radius: 0.5625em;
+      &::before{
+        content: '無限';
+        position: absolute;
+        display: inline-block;
+        padding: 0.15em 0.5em;
+        top: -1.15em;
+        left: calc(50% - 1.5em);
+        text-align: center;
+        color: #ff6a38;
+        background-color: rgba(255,255,255,0.7);
+        border-radius: 5px;
+        border: 1px solid white;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+      }
+      figure{
+        margin: 0;
+        padding: 0.75rem 0;
+        img{
+          margin: 0 auto;
+          display: block;
+          transition: transform 0.3s;
+        }
+      }
+      > span{
+        display: inline-block;
+        margin: 0 auto;
+        padding: 0.025em 0.5em;
+        font-size: 1rem;
+        color: #5d1b80;
+        background-color: #e7caff;
+        border-radius: 2em;
+      }
+    }
+    h4{
+      margin: 0;
+      padding: 0.25rem 0 0 0;
+      font-size: 1.125rem;
+      &.min{
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+// footer
+
+.footer{
+  padding: 2em 1em;
+  font-size: 0.85rem;
+  color: #333;
+  text-align: center;
+  background-color: white;
+}
+
+// 得獎紀錄
+
+.record{
+  position: fixed;
+  width: 120px;
+  text-align: center;
+  z-index: 6;
+}
+
+@keyframes mm {
+  0%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(1em);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+.record-list{
+  padding: 0;
+  list-style: none;
+  filter: drop-shadow(0 8px 3px rgba(0, 0, 0, 0.35));
+  li{
+    a{
+      display: block;
+      width: 120px;
+      height: 54px;
+      font-weight: bold;
+      font-size: 1.25em;
+      color: #761600;
+      line-height: 2.5;
+      text-decoration: none;
+      background-image: url(../images/record-bg.png);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.records-zone{
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0 5em 0;
+  ul{
+    li{
+      color: #ffd6a4;
+      font-size: 1.1875em;
+    }
+  }
+  .login-member{
+    display: block;
+    ~.page{
+      display: none;
+    }
+  }
+  .login-empty{
+    display: none;
+  }
+  .record-rows{
+    display: none;
+  }
+  &.login{
+    .login-member{
+      display: none;
+    }
+    .login-empty{
+      display: none;
+    }
+    .record-rows{
+      display: block;
+      ~.page{
+        display: flex;
+      }
+    }
+    &.empty{
+      .login-member{
+        display: none;
+      }
+      .login-empty{
+        display: block;
+        ~.page{
+          display: none;
+        }
+      }
+      .record-rows{
+        display: none;
+      }
+    }
+  }
+}
+.record-rows{
+  position: relative;
+  margin: 0;
+  // padding: 2em;
+  list-style: none;
+  background-color: #345222;
+  border: 8px solid #b17a3f;
+  border-radius: 1.25em;
+  box-shadow: 0 0 5px 0 #1f3711 inset;
+  z-index: 5;
+  li{
+    // display: grid;
+    // grid-template-columns: 250px 150px 1fr 100px;
+    align-items: center;
+    // gap: 1em;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #456d2d;
+    &:nth-last-child(1){
+      border-bottom: unset;
+    }
+    div{
+      line-height: 1.35;
+      &:nth-child(1){
+        text-align: center;
+      }
+    }
+  }
+}
+
+.login-member,
+.login-empty{
+  position: relative;
+  margin: 0;
+  padding:  3em 1em;
+  list-style: none;
+  background-color: #345222;
+  border: 8px solid #b17a3f;
+  border-radius: 1.25em;
+  box-shadow: 0 0 5px 0 #1f3711 inset;
+  z-index: 5;
+}
+
+// 分頁
+
+.page{
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  margin: 0;
+  padding: 1em;
+  list-style: none;
+  li{
+    a{
+      display: block;
+      font-size: 1.25em;
+      width: 1.75em;
+      height: 1.75em;
+      color: #93e562;
+      text-align: center;
+      text-decoration: none;
+      background-color: #57863a;
+      border-radius: 50%;
+      &.focus{
+        color: #57863a;
+        background-color: white;
+      }
+    }
+  }
+}
+
+// 粒子效果
+
+
+
+@import "rwd";

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>狂歡天外19周年夏日回饋，好禮一直抽一直玩</title>
+  <meta name="keywords" content="狂歡天外19周年夏日回饋，好禮一直抽一直玩">
+  <meta name="description" content="第一階段：ATM 儲值 7/5-7/19。第二階段：線上抽獎 7/19-8/2。活動期間，限定 ATM 儲值滿 1000，或累積 1000 的玩家即可獲得抽獎一次的機會。購買指定 ATM 面額 10000 點數，但可以分別不同指定轉入 3000 點數、3000 點數、1000 點數、1000 點數至遊戲中，那獲得抽獎有 10 次機會。每轉一次，都有獎品，先抽到先獲得。">
+
+  <!-- FB 社群分享 -->
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:title" content="狂歡天外19周年夏日回饋，好禮一直抽一直玩">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="第一階段：ATM 儲值 7/5-7/19。第二階段：線上抽獎 7/19-8/2。活動期間，限定 ATM 儲值滿 1000，或累積 1000 的玩家即可獲得抽獎一次的機會。購買指定 ATM 面額 10000 點數，但可以分別不同指定轉入 3000 點數、3000 點數、1000 點數、1000 點數至遊戲中，那獲得抽獎有 10 次機會。每轉一次，都有獎品，先抽到先獲得。">
+  <meta property="og:url" content="https://這裡放活動網址/">
+  <meta property="og:image" content="https://圖檔的絕對路徑/assets/images/fb-1200x640.jpg">
+  <!--圖檔路徑需改成絕對路徑-->
+  <meta property="og:site_name" content="狂歡天外19周年夏日回饋，好禮一直抽一直玩">
+
+  <script src="assets/js/tsparticles.min.js"></script>
+  <script src="assets/js/tsparticles.preset.confetti.min.js"></script>
+  <!-- <base href="/event/mo_20230607_gashapon/"> -->
+  <link rel="stylesheet" href="assets/css/all.css">
+</head>
+<body>
+
+
+  <div class="ossian">
+
+    <div class="record">
+      <img src="assets/images/record.png" alt="得獎紀錄">
+      <ul class="record-list">
+        <li><a href="index.html">回首頁</a></li>
+        <li><a href="record.html">得獎紀錄</a></li>
+      </ul>
+    </div>
+    <div class="content-padding">
+    <!-- 網站標題................................................................ -->
+    <figure class="site-title"><img src="assets/images/title.png" alt="狂歡天外，19周年夏日回饋，一直抽一直玩"></figure>
+
+
+    <!-- 角色圖.................................................................. -->
+
+    <div><figure class="two-boy"><img src="assets/images/two-boy.png" alt="角色圖"></figure></div>
+
+    <!-- 樂透機及活動時間......................................................... -->
+    <!-- 
+      狀態說明：
+      * <section class="layout-lottery">：未登入會員，樂透機未開放。(預設值)
+      * <section class="layout-lottery login">：會員已登入，樂透機未開放。
+      * <section class="layout-lottery login open">：會員已登入，樂透機開放抽獎。
+      * <section class="layout-lottery login end">：會員已登入，樂透機抽獎時效已過期。
+      * <section class="layout-lottery login unticket">：會員已登入，還在活動期間，但抽獎券已用完。
+      * <section class="layout-lottery end">：未登入會員，樂透機抽獎時效已過期。
+      * <section class="layout-lottery non">：未登入會員，在抽獎期間內(7/19-8/2)，樂透機開放但按鈕無作用。
+     -->
+    <section class="layout-lottery non">
+      <article>
+        <figure class="act-time"><img src="assets/images/time.png" alt="活動時間，第一階段：ATM儲值7/5-7/19；第二階段：線上抽獎7/19-8/2"></figure>
+        <ul class="act-note">
+          <li>活動期間，<em>限定 ATM</em> 儲值<em>滿 1000</em>，或<em>累積 1000</em> 的玩家即可獲得抽獎一次的機會。</li>
+          <li>購買指定 ATM 面額 10000 點數，但可以分別不同指定轉入 3000 點數、3000 點數、1000 點數、1000 點數至遊戲中，那獲得抽獎有 10 次機會。</li>
+          <li>每轉一次，都有獎品，先抽到先獲得。</li>
+        </ul>
+      </article>
+      <article>
+        <div class="login-statue">
+          <a name="a"></a>
+          <!-- 登入按鈕 -->
+          <a href="" target="_blank" class="login-btn"><img src="assets/images/loginin-member.png" alt="會員登錄"></a>
+          <!-- 抽獎券 -->
+          <div class="ticket">
+            您目前擁有
+            <div class="num"><em id="ticketData">0</em>張抽獎券</div>
+          </div>
+          <!-- 樂透機開啟狀態...................................................... -->
+          <div class="lottery-box">
+            <!-- 樂透機未開放 -->
+            <div class="unstart">
+              <img src="assets/images/member-unlogin.png" class="logout" alt="您還未登入會員">
+              <img src="assets/images/lottery-unstart.png" class="resize" alt="樂透機未開啟">
+            </div>
+            <!-- 樂透機開放 -->
+            <div class="start">
+              <ul class="lottery-machine">
+                <li>
+                  <button class="btn" id="paper-flower-btn" onclick="ajaxContent('data.json', '.content')"><!--按鈕--></button>
+                  <img src="assets/images/lottery-front.png" alt="扭蛋機">
+                  <div class="ball"><img src="assets/images/ball.png" alt="球"></div>
+                </li>
+              </ul>
+              <img class="loading" src="assets/images/loading.gif" alt="Loading...">
+            </div>
+            <!-- 樂透機過期 -->
+            <div class="end"><img src="assets/images/lottery-end.png" class="resize" alt="抽獎已過期"></div>
+            <!-- 抽獎已開放，但使用者未登錄 -->
+            <div class="start-logout">
+              <img src="assets/images/member-unlogin.png" class="logout" alt="您還未登入會員">
+              <img src="assets/images/lottery-non.png" class="resize" alt="抽獎已開放，但使用者未登錄">
+            </div>
+            <!-- 活動期間登入會員，但抽獎券數量為零 -->
+            <div class="ticket-zoro">
+              <img src="assets/images/lottery-ticket.png" class="resize" alt="活動期間登入會員，但抽獎券數量為零">
+            </div>
+          </div>
+        </div>
+      </article>
+      <article>
+        <dl class="date-state">
+          <dd>
+            <h4><em>第一階段</em>活動開始於</h4>
+            <div>2023/07/05(三) 維護開機後，<span class="break">2023/07/19(三) 維護關機前。</span></div>
+          </dd>
+          <dd>
+            <h4><em>第二階段</em>活動開始於</h4>
+            <div>2023/07/19(三) 維護開機後，<span class="break">2023/08/02(三) 維護關機前。</span></div>
+          </dd>
+        </dl>
+      </article>
+    </section>
+    </div><!--content-padding end-->
+
+
+    <!-- 獎品區塊............................................................... -->
+    
+    <section class="gift-group">
+      <article class="gift-container">
+        <div class="ps5-container">
+          <div class="a">
+            <div class="ps5-count"><span>限量</span><br><em id="ps5Num">Null</em>台</div>
+            <img src="assets/images/ps5.png" alt="PS5">
+          </div>
+          <div class="b">
+            <img src="assets/images/note.png" alt="注意事項">
+            <ul class="footer-note">
+              <li><span>活動結束時，將無法再次參與，請於活動結束前完成參與扭蛋活動。</span></li>
+              <li><span>若因玩家線路不穩、斷線、連接失敗等問題造成損失，將無法補償。</span></li>
+              <li><span>看不懂，有問題，怕自身理解有問題，先至客服中心詢問或到粉絲團詢問，甚至遊戲中也有玩家可以問。謝謝。</span></li>
+              <li><span>活動開啟 <em>2023/07/05 ~2023/07/19</em> 活動期間內購買才算是參與活動中，提前購買、太晚購買將無法參與本次活動。</span></li>
+              <li><span>以上活動本公司有調整活動辦法之修改、變更或暫停本活動之權利，如有未盡事宜，悉依相關規定或解釋，並得隨時補充公告說明，並保有本次活動最終解釋權。</span></li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <ul class="gifts-grid">
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/02.png" alt="強效快活香"></figure>
+                <span>一組3個</span>
+              </div>
+              <h4>強效快活香</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/03.png" alt="S強化過英雄卡包"></figure>
+                <span>一組30個</span>
+              </div>
+              <h4>S強化過英雄卡包</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/04.png" alt="強化過的隨機英雄卡包"></figure>
+                <span>一組15個</span>
+              </div>
+              <h4 class="min">強化過的隨機英雄卡包</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/05.png" alt="1-9穩定組合包"></figure>
+                <span>一組9個</span>
+              </div>
+              <h4>1-9穩定組合包</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/06.png" alt="蝦醬料理組"></figure>
+                <span>一組4個</span>
+              </div>
+              <h4>蝦醬料理組</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/07.png" alt="古物盒"></figure>
+                <span>一組30個</span>
+              </div>
+              <h4>古物盒</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/08.png" alt="古老寶盒"></figure>
+                <span>一組10個</span>
+              </div>
+              <h4>古老寶盒</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/09.png" alt="主星寶盒"></figure>
+                <span>一組5個</span>
+              </div>
+              <h4>主星寶盒</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/10.png" alt="塑型變化劑"></figure>
+                <span>一組5個</span>
+              </div>
+              <h4>塑型變化劑</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/11.png" alt="小當家料理組"></figure>
+                <span>一組5個</span>
+              </div>
+              <h4>小當家料理組</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/12.png" alt="快活香C"></figure>
+                <span>一組20個</span>
+              </div>
+              <h4>快活香C</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/13.png" alt="聚靈香C"></figure>
+                <span>一組20個</span>
+              </div>
+              <h4>聚靈香C</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/14.png" alt="強效快活香"></figure>
+                <span>一組20個</span>
+              </div>
+              <h4>強效快活香</h4>
+            </li>
+            <li>
+              <div class="gift-content">
+                <figure><img src="assets/images/virtual-treasure/15.png" alt="強效聚靈香"></figure>
+                <span>一組20個</span>
+              </div>
+              <h4>強效聚靈香</h4>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <img src="assets/images/note.png" alt="注意事項">
+          <ul class="footer-note">
+            <li><span>活動結束時，將無法再次參與，請於活動結束前完成參與扭蛋活動。</span></li>
+            <li><span>若因玩家線路不穩、斷線、連接失敗等問題造成損失，將無法補償。</span></li>
+            <li><span>看不懂，有問題，怕自身理解有問題，先至客服中心詢問或到粉絲團詢問，甚至遊戲中也有玩家可以問。謝謝。</span></li>
+            <li><span>活動開啟 <em>2023/07/05 ~2023/07/19</em> 活動期間內購買才算是參與活動中，提前購買、太晚購買將無法參與本次活動。</span></li>
+            <li><span>以上活動本公司有調整活動辦法之修改、變更或暫停本活動之權利，如有未盡事宜，悉依相關規定或解釋，並得隨時補充公告說明，並保有本次活動最終解釋權。</span></li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+
+    <section class="footer">
+      <article>
+        雷爵網絡科技股份有限公司 &copy; 2023 Lager Network Technologies Inc.
+        <div>All rights reserved.</div>
+      </article>
+    </section>
+
+
+    <!-- Modal................................................................ -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <img src="assets/images/popup/popup-back.png" class="modal-light">
+        <span class="close">&times;</span>
+        <div class="content">Null</div>
+      </div>
+    </div>
+
+
+  </div><!--ossian end-->
+
+
+
+
+
+
+<script src="assets/js/setting.js"></script>
+</body>
+</html>

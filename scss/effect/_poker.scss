@@ -1,0 +1,80 @@
+// html,
+// body {
+//   background-color: #1b1c1f;
+//   height: 100%;
+// }
+
+ul.pokers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3em;
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+  list-style: none;
+  li.poker {
+    max-width: 350px;
+    width: 100%;
+    min-height: 350px;
+    .label {
+      display: block;
+      position: relative;
+      margin: 0 auto;
+      width: 100%;
+      min-height: 350px;
+      perspective: 1000px;
+      // cursor: pointer;
+      input[type="checkbox"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        &:checked + .flip {
+          transform: rotateY(180deg);
+          transition: transform 0.5s ease-in-out;
+        }
+      }
+      .flip {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+
+        .front,
+        .back {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          padding: 10px;
+          height: 100%;
+          width: 100%;
+          color: #3f2e6e;
+          border-radius: 1em;
+          backface-visibility: hidden;
+          background-color: #fcecdf;
+          box-shadow: 0 0 40px #e9c6a5 inset, -1px -1px 1px rgba(102, 60, 45, 0.65) inset;
+        }
+        // .front {
+        //   background-image: url(https://i.imgur.com/hxt9hEx.png);
+        //   background-repeat: no-repeat;
+        //   background-position: center;
+        // }
+        .back {
+          // background-color: white;
+          // background-image: url(https://i.imgur.com/AXohsKP.png);
+          // background-repeat: no-repeat;
+          // background-position: center;
+          // box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8) inset,
+          //             0 0 3em rgba(0, 0, 0, 0.25) inset;
+          transform: rotateY(180deg);
+        }
+      }
+    }
+  }
+}
